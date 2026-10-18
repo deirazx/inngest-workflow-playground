@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "inngest": "^4.24.0"
+  },
+  "name": "inngest-chapter-01",
+  "version": "1.0.0",
+  "description": "Chapter 1: Introduction to inngest and setup",
+  "main": "src/index.ts",
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  },
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "tsx src/index.ts",
+    "inngest": "npx inngest-cli@latest dev"
+  },
+  "keywords": [],
+  "author": "Dheeraj kumar",
+  "license": "ISC",
+  "type": "module"
+}
