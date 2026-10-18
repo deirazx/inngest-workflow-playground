@@ -33,6 +33,33 @@ app.get("/", (req, res) => {
   });
 });
 
+app.post("/test", async (req, res) => {
+  try {
+    console.log("Sending test event");
+    const { ids } = await inngest.send({
+      name: "test/hello.world",
+      data: {
+        name: req.body.name || "World",
+        timeStamp: new Date().toISOString()
+      }
+    });
+
+    console.log("Event send with ID", ids[0]);
+
+    res.json({
+      message: "Event send successfully",
+      eventId: ids[0],
+      tip: "check http://localhost:8288/runs to see function execution"
+    });
+  } catch (error) {
+    console.error("Error sending event:", error);
+    res.status(500).json({
+      error: "Failed to send event",
+      details: error instanceof Error ? error.message : "Unknown error",
+    });
+  }
+});
+
 app.listen(port, () => {
   console.log(`Server is running at: ${port} port`);
 });
