@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "@types/express": "^5.0.6",
+    "express": "^4.22.3",
+    "inngest": "^4.24.0"
+  },
+  "name": "inngest-chapter-03",
+  "version": "1.0.0",
+  "description": "Chapter 3: Retries and Error Handling in Inngest",
+  "main": "src/index.ts",
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  },
+  "scripts": {
+    "dev": "bun --watch src/index.ts",
+    "start": "bun run src/index.ts",
+    "inngest": "npx --ignore-scripts=false inngest-cli@latest dev"
+  },
+  "keywords": [],
+  "author": "Dheeraj kumar",
+  "license": "ISC",
+  "type": "module"
+}
