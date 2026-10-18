@@ -1,4 +1,7 @@
 import express from "express";
+import { inngest } from "./inngest/client.js";
+import { serve } from "inngest/express";
+import { helloWorld, multiStepDemo } from "./inngest/function.js";
 
 const app = express();
 const port = 8000;
@@ -9,6 +12,14 @@ app.use((req, res, next) => {
   console.log(`${req.method} ${req.path}`);
   next();
 });
+
+app.use("/api/inngest", serve({
+  client: inngest,
+  functions: [
+    helloWorld,
+    multiStepDemo
+  ]
+}));
 
 app.get("/", (req, res) => {
   res.json({
